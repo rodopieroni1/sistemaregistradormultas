@@ -1,0 +1,83 @@
+<mat-card appearance="outlined" class="complaint-card">
+    <mat-card-header>
+        <mat-card-title>Formulario de denuncias</mat-card-title>
+        <mat-card-subtitle>Complete los datos del denunciante</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <!-- <form [formGroup]="form" (ngSubmit)="submit()" class="form-grid"> -->
+        <form [formGroup]="form" class="form-grid">
+            <div class="col-6">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput formControlName="lastName" placeholder="Apellido" />
+                    <mat-error *ngIf="form.get('lastName')?.hasError('required')">Campo obligatorio</mat-error>
+                    <mat-error *ngIf="form.get('lastName')?.hasError('minlength')">Mínimo 2 caracteres</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-6">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Nombre</mat-label>
+                    <input matInput formControlName="firstName" placeholder="Nombre" />
+                    <mat-error *ngIf="form.get('firstName')?.hasError('required')">Campo obligatorio</mat-error>
+                    <mat-error *ngIf="form.get('firstName')?.hasError('minlength')">Mínimo 2 caracteres</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-6">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Nacionalidad</mat-label>
+                    <mat-select formControlName="nationality">
+                        <mat-option *ngFor="let option of nacionalidades" [value]="option">{{ option }}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.get('nationality')?.hasError('required')">Campo obligatorio</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-6" *ngIf="form.get('nationality')?.value === 'Otra (especificar)'">
+                <!-- Nacionalidad otra -->
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Especifique nacionalidad</mat-label>
+                    <input matInput formControlName="nationalityOther" placeholder="Nacionalidad" />
+                    <mat-error *ngIf="form.get('nationalityOther')?.hasError('required')">Campo obligatorio</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-6">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Estado civil</mat-label>
+                    <mat-select formControlName="civilStatus">
+                        <mat-option *ngFor="let estado of estadoCivil" [value]="estado">{{ estado }}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.get('civilStatus')?.hasError('required')">Campo obligatorio</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-6">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Ocupación</mat-label>
+                    <mat-select formControlName="occupation">
+                        <mat-option *ngFor="let occ of ocupacion" [value]="occ">{{ occ }}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.get('occupation')?.hasError('required')">Campo obligatorio</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="col-12" *ngIf="form.get('occupation')?.value === 'Otro (especificar)'"><!-- Ocupación otra -->
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Especifique ocupación</mat-label>
+                    <input matInput formControlName="occupationOther" placeholder="Ocupacion" />
+                    <mat-error *ngIf="form.get('occupationOther')?.hasError('required')">Campo obligatorio</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="actions">
+                <!-- <button mat-stroked-button type="button" (click)="clear()">Limpiar</button> -->
+                <button mat-stroked-button type="button">Limpiar</button>
+
+                <button mat-flat-button color="primary" type="submit">Enviar</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

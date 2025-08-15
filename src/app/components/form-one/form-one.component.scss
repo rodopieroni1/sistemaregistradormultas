@@ -1,0 +1,110 @@
+
+$color-azul-policial: #0d1b2a;
+$color-dorado: #d4af37;
+$color-blanco: #ffffff;
+$color-gris-suave: #f4f4f4;
+
+.complaint-card {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: $color-gris-suave;
+  border: 1px solid $color-azul-policial;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(13, 27, 42, 0.2);
+
+  mat-card-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: $color-azul-policial;
+  }
+
+  mat-card-subtitle {
+    font-size: 1rem;
+    color: darken($color-azul-policial, 20%);
+    margin-bottom: 1rem;
+  }
+
+  .form-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .col-6 {
+      flex: 1 1 calc(50% - 1rem);
+    }
+
+    .col-12 {
+      flex: 1 1 100%;
+    }
+
+    .full-width {
+      width: 100%;
+    }
+
+ mat-form-field {
+  background-color: #ffffff;
+  border-radius: 6px;
+  padding: 0.5rem;
+  box-shadow: 0 2px 6px rgba(13, 27, 42, 0.1);
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(13, 27, 42, 0.2);
+  }
+
+  .mat-form-field-outline {
+    border-color: #0d1b2a;
+  }
+
+  .mat-form-field-label {
+    font-weight: 600;
+    color: #0d1b2a;
+  }
+
+  input, mat-select {
+    font-size: 1rem;
+    color: #0d1b2a;
+  }
+
+  mat-error {
+    font-size: 0.85rem;
+    color: #c0392b;
+  }
+}
+
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    button {
+      min-width: 120px;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+
+    button[type='button'] {
+      border-color: $color-azul-policial;
+      color: $color-azul-policial;
+    }
+
+    button[type='submit'] {
+      background-color: $color-dorado;
+      color: $color-azul-policial;
+
+      &:hover {
+        background-color: darken($color-dorado, 10%);
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .form-grid .col-6 {
+    flex: 1 1 100%;
+  }
+}
