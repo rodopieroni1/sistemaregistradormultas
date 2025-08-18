@@ -1,0 +1,37 @@
+<mat-card appearance="outlined" class="complaint-card">
+    <mat-card-header>
+        <mat-card-title>Formulario de denuncias</mat-card-title>
+        <mat-card-subtitle>Datos del hecho</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <form [formGroup]="form" class="form-grid">
+            <!-- Tipo de delito -->
+            <div class="col-12">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Tipo de delito</mat-label>
+                    <mat-select formControlName="crimeType">
+                        <mat-option *ngFor="let delito of tiposDeDelito" [value]="delito">{{ delito }}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="form.get('crimeType')?.hasError('required')">Campo obligatorio</mat-error>
+                </mat-form-field>
+            </div>
+
+            <!-- Documentación -->
+            <div class="col-12">
+                <label class="file-label">Documentación aportada</label>
+                <input type="file" multiple (change)="onFileUpload($event)" class="file-input" />
+                <p class="doc-description">
+                    El denunciante proporciona copia de su DNI, fotografías y/o videos del hecho y/o certificados
+                    médicos.
+                </p>
+            </div>
+
+
+            <div class="actions">
+                <button mat-stroked-button type="button" (click)="clear()">Limpiar</button>
+                <button mat-flat-button color="primary" type="submit">Enviar</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

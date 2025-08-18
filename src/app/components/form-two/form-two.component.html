@@ -1,0 +1,29 @@
+<mat-card appearance="outlined" class="complaint-card">
+    <mat-card-header>
+        <mat-card-title>Formulario de denuncias</mat-card-title>
+        <mat-card-subtitle>Relación con el denunciante</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <form [formGroup]="form" class="form-grid">
+            <div class="col-12">
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Relación con el denunciante</mat-label>
+                    <textarea matInput formControlName="relation" placeholder="Relación con el denunciante" rows="10"
+                        cols="80"></textarea>
+                    <mat-error *ngIf="form.get('relation')?.hasError('required')">Campo obligatorio</mat-error>
+                    <mat-error *ngIf="form.get('relation')?.hasError('minlength')">Mínimo 5 caracteres</mat-error>
+                </mat-form-field>
+
+            </div>
+
+            <div class="actions">
+                <button mat-stroked-button type="button" (click)="clear()">Limpiar</button>
+                <button mat-flat-button color="primary" type="submit">Enviar</button>
+                <button mat-flat-button color="primary" type="button" [routerLink]="['/app-form-three']">
+                    Ir al formulario tres
+                </button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

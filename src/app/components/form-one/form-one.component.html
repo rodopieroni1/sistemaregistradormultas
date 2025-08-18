@@ -35,7 +35,7 @@
                 </mat-form-field>
             </div>
 
-            <div class="col-6" *ngIf="form.get('nationality')?.value === 'Otra (especificar)'">
+            <div class="col-6" *ngIf="form.get('nationality')?.value === 'Otra'">
                 <!-- Nacionalidad otra -->
                 <mat-form-field appearance="outline" class="full-width">
                     <mat-label>Especifique nacionalidad</mat-label>
@@ -73,10 +73,12 @@
             </div>
 
             <div class="actions">
-                <!-- <button mat-stroked-button type="button" (click)="clear()">Limpiar</button> -->
-                <button mat-stroked-button type="button">Limpiar</button>
+                <button mat-stroked-button type="button" (click)="clear()">Limpiar</button>
+                <button mat-flat-button color="primary" type="submit">Continuar</button>
+                <button mat-flat-button color="primary" type="button" [routerLink]="['/app-form-two']">
+                    Ir al formulario dos
+                </button>
 
-                <button mat-flat-button color="primary" type="submit">Enviar</button>
             </div>
         </form>
     </mat-card-content>
