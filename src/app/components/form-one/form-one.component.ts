@@ -4,11 +4,15 @@ import {
   FormBuilder,
   ReactiveFormsModule,
   FormsModule,
+  Validators,
 } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-form-one',
@@ -20,6 +24,9 @@ import { MatSelectModule } from '@angular/material/select';
     MatCardModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatIconModule,
+    RouterModule,
+    MatInputModule, // ← este es clave
   ],
   templateUrl: './form-one.component.html',
   styleUrl: './form-one.component.scss',
@@ -27,7 +34,7 @@ import { MatSelectModule } from '@angular/material/select';
 export class FormOneComponent {
   form: FormGroup;
 
-  nacionalidades = ['Argentino/a', 'Otra'];
+  nacionalidades = ['Argentino/a', 'Brasilero/a', 'Otra'];
   estadoCivil = [
     'Soltero/a',
     'Casado/a',
@@ -55,11 +62,13 @@ export class FormOneComponent {
 
   constructor(private fb: FormBuilder) {
     this.form = this.fb.group({
-      nombre: [''],
-      nacionalidad: [''],
-      estadoCivil: [''],
-      ocupacion: [''],
-      ocupacionOtro: [''],
+      lastName: ['', [Validators.required]],
+      firstName: ['', [Validators.required]],
+      nationality: ['', Validators.required],
+      nationalityOther: [''],
+      civilStatus: ['', Validators.required],
+      occupation: ['', Validators.required],
+      occupationOther: [''],
     });
   }
 }

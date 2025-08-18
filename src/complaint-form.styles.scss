@@ -1,0 +1,223 @@
+@use 'sass:color';
+
+$color-azul-policial: #0d1b2a;
+$color-dorado: #d4af37;
+$color-blanco: #ffffff;
+$color-gris-suave: #f4f4f4;
+
+
+$color-azul-policial: #0d1b2a;
+$color-dorado: #d4af37;
+$color-blanco: #ffffff;
+$color-gris-suave: #f4f4f4;
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.complaint-card {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: $color-gris-suave;
+  border: 1px solid $color-azul-policial;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(13, 27, 42, 0.2);
+
+  mat-card-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: $color-azul-policial;
+  }
+
+  mat-card-subtitle {
+    font-size: 1rem;
+    color: darken($color-azul-policial, 20%);
+    margin-bottom: 1rem;
+  }
+
+  .form-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .col-6 {
+      flex: 1 1 calc(50% - 1rem);
+    }
+
+    .col-12 {
+      flex: 1 1 100%;
+    }
+
+    .full-width {
+      width: 100%;
+    }
+
+ mat-form-field {
+  background-color: #ffffff;
+  border-radius: 6px;
+  padding: 0.5rem;
+  box-shadow: 0 2px 6px rgba(13, 27, 42, 0.1);
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(13, 27, 42, 0.2);
+  }
+
+  .mat-form-field-outline {
+    border-color: #0d1b2a;
+  }
+
+  .mat-form-field-label {
+    font-weight: 600;
+    color: #0d1b2a;
+  }
+
+  input, mat-select {
+    font-size: 1rem;
+    color: #0d1b2a;
+  }
+
+  mat-error {
+    font-size: 0.85rem;
+    color: #c0392b;
+  }
+}
+
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    button {
+      min-width: 120px;
+      font-weight: 600;
+      border-radius: 4px;
+    }
+
+    button[type='button'] {
+      border-color: $color-azul-policial;
+      color: $color-azul-policial;
+    }
+
+    button[type='submit'] {
+      background-color: $color-dorado;
+      color: $color-azul-policial;
+
+      &:hover {
+        background-color: darken($color-dorado, 10%);
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .form-grid .col-6 {
+    flex: 1 1 100%;
+  }
+}
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+  .col-12 {
+    width: 100%;
+    mat-form-field.full-width {
+      width: 100%;
+      textarea {
+        resize: vertical;
+        min-height: 120px;
+        font-size: 1rem;
+      }
+    }
+  }
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    button {
+      flex: 1;
+      min-width: 100px;
+    }
+  }
+
+  mat-form-field textarea {
+  width: 100%;
+  height: 150px;
+  max-height: 40vh;
+  overflow-y: auto;
+  resize: vertical;
+  padding: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.4;
+
+  &::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+  }
+}
+
+// 📱 Ajuste para pantallas pequeñas
+@media (max-width: 600px) {
+  mat-form-field textarea {
+    height: 120px;
+    font-size: 0.95rem;
+  }
+  .news-card img {
+    border-radius: 0;
+  }
+  .actions {
+  flex-direction: column;
+  .button {
+    width: 100%;
+  }
+}
+}
+
+.file-label {
+  font-weight: 600;
+  color: $color-azul-policial;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.file-upload-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+
+  .file-name {
+    font-size: 0.9rem;
+    color: $color-azul-policial;
+    font-style: italic;
+  }
+}
+
+.doc-description {
+  font-size: 0.95rem;
+  color: darken($color-azul-policial, 10%);
+}
+.news-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+.news-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 100%;
+}
+
+}
