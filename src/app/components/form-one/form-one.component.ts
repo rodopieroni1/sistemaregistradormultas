@@ -71,4 +71,8 @@ export class FormOneComponent {
       occupationOther: [''],
     });
   }
+
+  clear(): void {
+    this.form.reset();
+  }
 }

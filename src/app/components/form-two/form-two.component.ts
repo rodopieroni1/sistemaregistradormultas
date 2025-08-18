@@ -36,4 +36,7 @@ export class FormTwoComponent {
       relation: ['', [Validators.required, Validators.minLength(5)]],
     });
   }
+  clear(): void {
+    this.form.reset();
+  }
 }

@@ -68,4 +68,8 @@ export class FormThreeComponent {
       this.selectedFilesText = 'Ningún archivo seleccionado';
     }
   }
+
+  clear(): void {
+    this.form.reset();
+  }
 }
